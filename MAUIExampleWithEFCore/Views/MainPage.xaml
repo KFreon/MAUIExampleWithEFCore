@@ -5,19 +5,26 @@
              xmlns:viewmodels="clr-namespace:MAUIExampleWithEFCore.ViewModels"
              xmlns:db="clr-namespace:MAUIExampleDB;assembly=MAUIExampleDB"
              x:DataType="viewmodels:MainPageViewModel"
+             BackgroundColor="Black"
+             xmlns:controls="clr-namespace:MAUIExampleWithEFCore.Views.Controls"
              Title="MainPage">
-    <VerticalStackLayout>
-        <CollectionView ItemsSource="{Binding Models}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="db:MyModel">
-                    <Label Text="{Binding Name}"/>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        
-        <HorizontalStackLayout>
-            <Entry Text="{Binding Name}" Placeholder="Name?"/>
-            <Button Text="Add" Command="{Binding AddCommand}"/>
-        </HorizontalStackLayout>
-    </VerticalStackLayout>
+    <Border HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="500" Padding="20" BackgroundColor="DarkSlateGray">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="20"/>
+        </Border.StrokeShape>
+        <VerticalStackLayout>
+            <CollectionView ItemsSource="{Binding Models}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="db:MyModel">
+                        <Label Text="{Binding Name}" HeightRequest="25" TextColor="White"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <controls:NiceEntry Text="{Binding Name}" Placeholder="Name?" WidthRequest="100" LabelColor="White" TextColor="White"/>
+                <Button Text="Add" Command="{Binding AddCommand}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Border>
 </ContentPage>
