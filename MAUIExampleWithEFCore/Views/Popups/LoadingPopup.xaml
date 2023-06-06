@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIExampleWithEFCore.Views.Popups.LoadingPopup"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             CanBeDismissedByTappingOutsideOfPopup="False"
+             Color="Transparent"
+             >
+    <Border
+        BackgroundColor="White"
+        HorizontalOptions="Center"
+        WidthRequest="200"
+        HeightRequest="200"
+        VerticalOptions="Center">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="30"/>
+        </Border.StrokeShape>
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center"
+                             Padding="40"
+                             Margin="0">
+            <Image x:Name="image" Source="mysplash.png" WidthRequest="200" HeightRequest="200"/>
+        </VerticalStackLayout>
+    </Border>
+</toolkit:Popup>

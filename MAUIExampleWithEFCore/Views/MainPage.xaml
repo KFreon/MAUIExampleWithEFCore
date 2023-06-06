@@ -25,6 +25,8 @@
                 <controls:NiceEntry Text="{Binding Name}" Placeholder="Name?" WidthRequest="100" LabelColor="White" TextColor="White"/>
                 <Button Text="Add" Command="{Binding AddCommand}"/>
             </HorizontalStackLayout>
+            <Button Text="Show info popup" Command="{Binding PopInfo}" />
+            <Button Text="Show cats popup" Command="{Binding PopCats}" />
         </VerticalStackLayout>
     </Border>
 </ContentPage>
