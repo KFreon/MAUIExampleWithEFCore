@@ -15,7 +15,6 @@ public partial class LoadingPopup : Popup
 		while (true)
 		{
 			await image.RelRotateTo(180, 1000);
-			await Task.Delay(500);
 		}
 	}
 }
