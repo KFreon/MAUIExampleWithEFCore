@@ -5,16 +5,33 @@
              CanBeDismissedByTappingOutsideOfPopup="False"
              xmlns:viewmodels="clr-namespace:MAUIExampleWithEFCore.ViewModels"
              x:DataType="viewmodels:ContentPopupViewModel"
+             Color="Transparent"
              x:Class="MAUIExampleWithEFCore.Views.Popups.ContentPopup">
-    <VerticalStackLayout>
-        <Label 
+    <Border
+        Stroke="DarkRed"
+        StrokeThickness="2"
+        WidthRequest="500"
+        Padding="10"
+        BackgroundColor="DarkSlateGray">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="8"/>
+        </Border.StrokeShape>
+        <VerticalStackLayout>
+            <Label
+                FontSize="Large"
+                TextColor="White"
+                Margin="0,0,0,20"
             Text="{Binding Title}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Label 
+            
+            <Label 
+                FontSize="Medium"
+                TextColor="White"
             Text="{Binding Content}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Button Text="Close" Command="{Binding CloseCommand}"/>
-    </VerticalStackLayout>
+            <Button Text="Close" Command="{Binding CloseCommand}"/>
+        </VerticalStackLayout>
+    </Border>
 </toolkit:Popup>
