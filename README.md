@@ -1,4 +1,4 @@
-# MAUIExampleWithEFCore
+# Example MAUI Project with EFCore and Popups
 My attempt to demo a production ready MAUI Android app with EFCore, popups, etc
 
 # Features  
