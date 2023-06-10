@@ -27,14 +27,13 @@
 	<ItemGroup>
 		<!-- App Icon -->
 		<EmbeddedResource Include="appsettings.json" />
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\icon.png" Color="#FFFFFF" />
 
 		<!-- Splash Screen -->
         <MauiSplashScreen Include="Resources\Splash\mysplash.png" />
 
         <!-- Images -->
         <MauiImage Include="Resources\Images\*" />
-        <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
 
         <!-- Custom Fonts -->
         <MauiFont Include="Resources\Fonts\*" />
@@ -45,6 +44,7 @@
 
     <ItemGroup>
         <None Remove="appsettings.json" />
+        <None Remove="Resources\AppIcon\icon.png" />
     </ItemGroup>
 
 	<ItemGroup>
@@ -72,6 +72,10 @@
 	  <MauiXaml Update="Views\Popups\LoadingPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Resources\Images\" />
 	</ItemGroup>
 
 </Project>
