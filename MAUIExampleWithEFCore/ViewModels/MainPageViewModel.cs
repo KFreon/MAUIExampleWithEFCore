@@ -13,15 +13,18 @@ namespace MAUIExampleWithEFCore.ViewModels
 
         public string Title => config.SiteName;
 
+        // Any list you want to update in the view needs to be ObservableCollection.
+        // Automatically handles
         public ObservableCollection<MyModel> Models { get; set; } = new ObservableCollection<MyModel>();
 
         private string name;
         public string Name
         {
             get => name;
-            set => Set(ref name, value);
+            set => Set(ref name, value);  // Here's an example of the convenience Set method. Automatically triggers change detection for UI.
         }
 
+        // Commands are the easy way to trigger behaviour on click/tap.
         public ICommand AddCommand { get; set; }
         public ICommand PopInfo { get; set; }
         public ICommand PopCats { get; set; }
@@ -56,7 +59,6 @@ namespace MAUIExampleWithEFCore.ViewModels
                 Name = Name
             };
             await myService.AddModel(newModel);
-
             await RefreshModels();
 
             await Task.Delay(2000);  // Fake work
@@ -64,6 +66,7 @@ namespace MAUIExampleWithEFCore.ViewModels
             popupService.HidePopup();
         }
 
+        // Update the UI list from the database
         private async Task RefreshModels()
         {
             Models.Clear();
@@ -76,6 +79,8 @@ namespace MAUIExampleWithEFCore.ViewModels
 
         private void ShowInfoPopup()
         {
+            // Configure the view model of the popup.
+            // Occurs after DI.
             popupService.ShowPopup<ContentPopup, ContentPopupViewModel>(model =>
             {
                 model.Title = "Info about this app";

@@ -12,9 +12,12 @@ namespace MAUIExampleWithEFCore.Extensions
     {
         public static IServiceCollection RegisterConfiguration(this IServiceCollection services)
         {
+            // I've set the appsettings.json as an EmbeddedResource
+            // So we need to get it's path with assembly
             var ass = Assembly.GetExecutingAssembly();
             var debugSettings = ass.GetManifestResourceStream("MAUIExampleWithEFCore.appsettings.json");
 
+            // Manually add the json file
             var configRoot = new ConfigurationBuilder()
                 .AddJsonStream(debugSettings)
                 .Build();
@@ -29,6 +32,7 @@ namespace MAUIExampleWithEFCore.Extensions
 
         public static IServiceCollection RegisterViewModels(this IServiceCollection services)
         {
+            // Generally VM's should be transient
             services.AddTransient<MainPageViewModel>();
             services.AddTransient<ContentPopupViewModel>();
             return services;
@@ -52,6 +56,7 @@ namespace MAUIExampleWithEFCore.Extensions
 
         /// <summary>
         /// Popups MUST be transient so they can be opened/closed repeatedly.
+        /// If not, they can't be reopened once closed.
         /// </summary>
         private static IServiceCollection AddPopup<T>(this IServiceCollection services) where T : Popup
         {

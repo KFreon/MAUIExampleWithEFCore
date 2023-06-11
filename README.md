@@ -19,4 +19,4 @@ It feels a bit crazy, but I'm using the Microsoft DI and `appsettings.json` conf
 This also feels a bit heavy, however after implementing it, it doesn't feel any heavier than anything else.  
 There's not too many sharp edges discovered so far (using Sqlite) except for the external migration assembly.  
 
-See [here]() for more info.
+See [here](https://www.kaels-kabbage.com/posts/production-maui-app/) for more info.
