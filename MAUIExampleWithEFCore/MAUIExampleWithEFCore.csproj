@@ -60,6 +60,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\Controls\NiceCheckbox.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Controls\NiceEntry.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -76,6 +79,12 @@
 
 	<ItemGroup>
 	  <Folder Include="Resources\Images\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Controls\NiceCheckbox.xaml.cs">
+	    <DependentUpon>NiceCheckbox.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

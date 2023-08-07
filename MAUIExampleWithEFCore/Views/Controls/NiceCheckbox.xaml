@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUIExampleWithEFCore.Views.Controls.NiceCheckbox"
+             Title="NewPage1">
+    <HorizontalStackLayout>
+        <HorizontalStackLayout.Resources>
+            <ResourceDictionary>
+                <Style TargetType="CheckBox" x:Key="CheckboxBox">
+                    <Setter Property="WidthRequest" Value="30"/>
+                    <Setter Property="HeightRequest" Value="30"/>
+                    <Setter Property="Scale" Value="1.5"/>
+                    <Setter Property="Color" Value="{StaticResource ThemeAccent1}"/>
+                </Style>
+                <Style TargetType="Label" x:Key="CheckboxLabel">
+                    <Setter Property="FontSize" Value="Medium"/>
+                    <Setter Property="LineHeight" Value="2"/>
+                    <Setter Property="VerticalTextAlignment" Value="Center"/>
+                    <Setter Property="Margin" Value="5,0,0,0"/>
+                </Style>
+            </ResourceDictionary>
+        </HorizontalStackLayout.Resources>
+
+        <CheckBox
+	    Style="{StaticResource CheckboxBox}"
+        Color="{Binding Source={x:Reference niceCheckbox}, Path=CheckboxColor}"
+        IsChecked="{Binding Source={x:Reference niceCheckbox}, Path=IsChecked}"
+        HorizontalOptions="StartAndExpand"
+        VerticalOptions="Start"
+    />
+        <Label Padding="0" LineHeight="1" WidthRequest="{Binding Source={x:Reference niceCheckbox}, Path=LabelWidth}" LineBreakMode="{Binding Source={x:Reference niceCheckbox}, Path=TextWrap}" Style="{StaticResource CheckboxLabel}" Text="{Binding Source={x:Reference niceCheckbox}, Path=Text}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={x:Reference niceCheckbox}, Path=CheckCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+    </HorizontalStackLayout>
+</ContentPage>
